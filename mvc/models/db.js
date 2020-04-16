@@ -2,6 +2,10 @@ const mongoose = require("mongoose");
 
 let URL = "mongodb://localhost/the_supers";
 
+if (process.env.NODE_ENV === "production") {
+  URL = process.env.MONGODB_URI;
+}
+
 mongoose.connect(URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
