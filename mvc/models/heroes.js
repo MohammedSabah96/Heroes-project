@@ -15,10 +15,13 @@ const heroSchema = new mongoose.Schema({
   description: { type: String, required: true },
   origin: { type: String, default: "Unknown" },
   stats: { type: statsSchema, required: true },
+  squad: String,
 });
 
 const squadSchema = new mongoose.Schema({
   name: { type: String, required: true, unique: true },
+  hq: String,
 });
 
+mongoose.model("Squad", squadSchema);
 mongoose.model("Hero", heroSchema);

@@ -27,7 +27,21 @@
         </div>
         
         
-        
+        <% if(squads.length > 0) { %>
+            <div class="">
+                <label>Squad</label>
+                <select name="squad">
+                    <option value="">None</option>
+                    <% for(let i = 0; i < squads.length; i++) { %>
+                        <% if(n && squads[i].name === hero.squad) { %>
+                            <option selected="selected" value="<%= squads[i].name %>"><%= squads[i].name %></option>
+                        <% } else { %>
+                            <option value="<%= squads[i].name %>"><%= squads[i].name %></option>
+                        <% } %>
+                    <% } %>
+                </select>    
+            </div>
+        <% } %>
     </div>
     
     <div class="input-group">
